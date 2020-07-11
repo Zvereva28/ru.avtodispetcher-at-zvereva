@@ -41,14 +41,12 @@ public class BaseActions {
     }
     public void changeWindow(){
         String s = driver.getWindowHandle();
-        System.out.println(driver.getWindowHandle());
-        for (String tab : driver.getWindowHandles()){
-            if (!(s.equals(tab))){
+        for (String tab : driver.getWindowHandles()) {
+            if (!(s.equals(tab))) {
                 driver.switchTo().window(tab);
                 break;
             }
         }
-        System.out.println(driver.getWindowHandle());
     }
 
     public boolean isElementPresent(By by) {
@@ -63,5 +61,13 @@ public class BaseActions {
     public void scrollPage300() {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0, 300)");
+    }
+    public boolean checkURL(String waitingURL){
+        return driver.getCurrentUrl().equals(waitingURL);
+    }
+
+    public boolean checkTitle(String waitingTitle){
+        System.out.println(driver.getTitle());
+        return driver.getTitle().toLowerCase().equals(waitingTitle.toLowerCase());
     }
 }

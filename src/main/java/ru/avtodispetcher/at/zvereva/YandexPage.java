@@ -28,7 +28,6 @@ public class YandexPage extends BaseActions{
     public void goToAvtodispetcher(){
         click(AVTODISPETCHER);
         changeWindow();
-        waitABit(5);
     }
 
 

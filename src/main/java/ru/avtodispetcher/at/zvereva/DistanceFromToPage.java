@@ -23,12 +23,16 @@ public class DistanceFromToPage extends BaseActions{
     }
 
     public int costInform(){
-        String[] allInf = driver.findElement(ALL_INFORM).getText().split(" ");
+        String[] allInf = readAllInform().split(" ");
         return Integer.parseInt(allInf[allInf.length - 2]);
     }
 
     public boolean checkCostInform(int waitingCost){
         return costInform()== waitingCost;
+    }
+
+    public boolean checkDistanceInform(int waitingDistance){
+        return Integer.parseInt(driver.findElement(DISTANCE_INFORM).getText())==waitingDistance;
     }
 
     public void clickChangeRoutButton(){
@@ -40,9 +44,9 @@ public class DistanceFromToPage extends BaseActions{
         clickChangeRoutButton();
         type(cityName,ADD_CITY_FIELD);
         scrollPage300();
+        //waitABit(60);
+        //Ждет минуту и снова нажимает «Рассчитать»
         click(SUBMIT_BUTTON);
-        waitABit(5);
-
     }
 
 
