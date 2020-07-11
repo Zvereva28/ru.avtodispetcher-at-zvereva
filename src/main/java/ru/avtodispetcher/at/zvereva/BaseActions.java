@@ -67,7 +67,6 @@ public class BaseActions {
     }
 
     public boolean checkTitle(String waitingTitle){
-        System.out.println(driver.getTitle());
         return driver.getTitle().toLowerCase().equals(waitingTitle.toLowerCase());
     }
 }
