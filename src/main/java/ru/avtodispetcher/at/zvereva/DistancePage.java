@@ -1,5 +1,6 @@
 package ru.avtodispetcher.at.zvereva;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -16,7 +17,8 @@ public class DistancePage extends BaseActions {
         super(driver, wait);
     }
 
-
+    @Step("Расчет стоимости и дистанции из города {fromCity} в город {toCity},  " +
+            "при расходе бензина {gasoline}, при стоимости бензина {gasolineCost}")
     public void calculateDistance(String fromCity,
                                   String toCity,
                                   Integer gasoline,

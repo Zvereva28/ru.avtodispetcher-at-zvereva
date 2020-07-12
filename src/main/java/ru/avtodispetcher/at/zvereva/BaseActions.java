@@ -1,5 +1,6 @@
 package ru.avtodispetcher.at.zvereva;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -62,10 +63,12 @@ public class BaseActions {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0, 300)");
     }
+    @Step("Проверка загруски страницы - {waitingURL}")
     public boolean checkURL(String waitingURL){
         return driver.getCurrentUrl().equals(waitingURL);
     }
 
+    @Step("Проверка заголовка страницы - {waitingTitle}")
     public boolean checkTitle(String waitingTitle){
         return driver.getTitle().toLowerCase().equals(waitingTitle.toLowerCase());
     }

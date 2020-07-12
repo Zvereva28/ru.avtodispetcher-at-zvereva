@@ -12,14 +12,13 @@
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <junit.version>5.6.2</junit.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <dependencies>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
-            <version>${junit.version}</version>
+            <version>5.6.2</version>
             <scope></scope>
         </dependency>
         <dependency>
@@ -33,6 +32,12 @@
             <artifactId>webdrivermanager</artifactId>
             <version>3.8.1</version>
         </dependency>
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-junit5</artifactId>
+            <version>2.13.2</version>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -45,13 +50,31 @@
                     <!--true - Статус билда не зависит от прохождения тестов-->
                     <testFailureIgnore>true</testFailureIgnore>
                     <includes>
-                        <include>**/*Test.java</include>
+                        <include>**/*Test*.java</include>
                     </includes>
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/1.9.4/aspectjweaver-1.9.4.jar"
                     </argLine>
                 </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.aspectj</groupId>
+                        <artifactId>aspectjweaver</artifactId>
+                        <version>1.9.4</version>
+                    </dependency>
+                </dependencies>
             </plugin>
+
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>2.10.0</version>
+                <configuration>
+                    <reportVersion>2.13.3</reportVersion>
+                    <resultsDirectory>allure-results</resultsDirectory>
+                </configuration>
+            </plugin>
+
         </plugins>
     </build>
 
