@@ -22,13 +22,13 @@ public class DistancePage extends BaseActions {
     public void calculateDistance(String fromCity,
                                   String toCity,
                                   Integer gasoline,
-                                  Integer gasolineCost){
-        type(fromCity,FROM_FIELD);
-        type(toCity,TO_FIELD);
+                                  Integer gasolineCost) {
+        type(fromCity, FROM_FIELD);
+        type(toCity, TO_FIELD);
         scrollPage300();
 
-        type(gasoline.toString(),FUEL_RATE_FIELD);
-        type(gasolineCost.toString(),FUEL_PRICE_FIELD);
+        type(gasoline.toString(), FUEL_RATE_FIELD);
+        type(gasolineCost.toString(), FUEL_PRICE_FIELD);
         click(SUBMIT_BUTTON);
     }
 }
